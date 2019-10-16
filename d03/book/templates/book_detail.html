@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+图书详情页
+{% endblock %}
+
+{% block content %}
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">{{ book.1 }}</h4>
+          {{ book.2 }}
+      </div>
+    </div>
+    <form action="{% url 'delete_book' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="book_id" value="{{ book.0 }}">
+        <input type="submit" value="删除">
+    </form>
+    <form action="{% url 'upload_book' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="book_id" value="{{ book.0 }}">
+        <input type="submit" value="修改">
+    </form>
+{% endblock %}

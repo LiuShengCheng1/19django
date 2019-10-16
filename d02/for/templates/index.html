@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        {% for book in books  %}
+            <li>{{ book }}</li>
+        {% endfor %}
+
+    </ul>
+    <ul>
+        {% for key,value in persons.items %}
+            <li>{{ key }}:{{ value }}</li>
+        {% endfor %}
+    </ul>
+    <table>
+        <tabdy>
+            <tr>
+            <th>序号</th>
+            <th>电影名</th>
+            <th>演员</th>
+            </tr>
+            {% for movie in movies %}
+                {% if forloop.first %}
+                <tr style="background: aquamarine">
+                    {% elif forloop.last %}
+                    <tr style="background:green">
+                    {% else %}
+                    <tr>
+
+                {% endif %}
+
+                    <td>{{ forloop.counter0 }}</td>
+                    <td>{{ movie.name }}</td>
+                    <td>{{ movie.author }}</td>
+                </tr>
+                {% endfor %}
+            
+        </tabdy>
+    </table>
+            {% with b = books.1  %}
+                <p>{{ b }}</p>
+            {% endwith %}
+</body>
+</html>
